@@ -12,7 +12,7 @@
       </div>
 
       <div>
-        <a href="/delete_favorite/<%= @the_favorite.id %>">
+        <a href="/favorite/<%= @the_favorite.id %>">
           Delete favorite
         </a>
       </div>
@@ -59,7 +59,7 @@
       Edit favorite
     </h2>
 
-    <form action="/modify_favorite/<%= @the_favorite.id %>"  method="post" >
+    <form action="/favorite/<%= @the_favorite.id %>"  method="post" >
       <div>
         <label for="user_id_box">
           User
