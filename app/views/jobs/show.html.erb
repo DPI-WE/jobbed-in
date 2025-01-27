@@ -12,7 +12,7 @@
       </div>
 
       <div>
-        <a href="/delete_job/<%= @the_job.id %>">
+        <a href="/job/<%= @the_job.id %>">
           Delete job
         </a>
       </div>
@@ -87,7 +87,7 @@
       Edit job
     </h2>
 
-    <form action="/modify_job/<%= @the_job.id %>"  method="post" >
+    <form action="/job/<%= @the_job.id %>"  method="post" >
       <div>
         <label for="title_box">
           Title
