@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # Routes for the Favorite resource:
 
   # CREATE
-  post("/insert_favorite", { :controller => "favorites", :action => "create" })
+  post("/favorite", { :controller => "favorites", :action => "create" })
           
   # READ
   get("/favorites", { :controller => "favorites", :action => "index" })
@@ -11,17 +11,17 @@ Rails.application.routes.draw do
   
   # UPDATE
   
-  post("/modify_favorite/:path_id", { :controller => "favorites", :action => "update" })
+  post("/favorite/:path_id", { :controller => "favorites", :action => "update" })
   
   # DELETE
-  get("/delete_favorite/:path_id", { :controller => "favorites", :action => "destroy" })
+  get("/favorite/:path_id", { :controller => "favorites", :action => "destroy" })
 
   #------------------------------
 
   # Routes for the Comment resource:
 
   # CREATE
-  post("/insert_comment", { :controller => "comments", :action => "create" })
+  post("/comment", { :controller => "comments", :action => "create" })
           
   # READ
   get("/comments", { :controller => "comments", :action => "index" })
@@ -30,17 +30,17 @@ Rails.application.routes.draw do
   
   # UPDATE
   
-  post("/modify_comment/:path_id", { :controller => "comments", :action => "update" })
+  post("/comment/:path_id", { :controller => "comments", :action => "update" })
   
   # DELETE
-  get("/delete_comment/:path_id", { :controller => "comments", :action => "destroy" })
+  get("/comment/:path_id", { :controller => "comments", :action => "destroy" })
 
   #------------------------------
 
   # Routes for the Job resource:
 
   # CREATE
-  post("/insert_job", { :controller => "jobs", :action => "create" })
+  post("/job", { :controller => "jobs", :action => "create" })
           
   # READ
   get("/jobs", { :controller => "jobs", :action => "index" })
@@ -49,10 +49,10 @@ Rails.application.routes.draw do
   
   # UPDATE
   
-  post("/modify_job/:path_id", { :controller => "jobs", :action => "update" })
+  post("/job/:path_id", { :controller => "jobs", :action => "update" })
   
   # DELETE
-  get("/delete_job/:path_id", { :controller => "jobs", :action => "destroy" })
+  get("/job/:path_id", { :controller => "jobs", :action => "destroy" })
 
   #------------------------------
 
