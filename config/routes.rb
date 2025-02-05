@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # Routes for the Favorite resource:
 
+  root "jobs#index"
+
   # CREATE
   post("/favorite", { :controller => "favorites", :action => "create" })
           
