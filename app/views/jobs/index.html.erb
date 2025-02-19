@@ -1,82 +1,86 @@
-<div>
+<div class="container">
   <div>
-    <h1>
-      List of all jobs
-    </h1>
+    <div>
+      <h1>
+        List of all jobs
+      </h1>
+    </div>
   </div>
-</div>
 
-<hr>
+  <hr>
 
-<div>
   <div>
-    <h2>
-      Add a new job
-    </h2>
+    <div>
+      <h2>
+        Add a new job
+      </h2>
 
-    <form action="/job" method="post">
-      <div>
-        <label for="title_box">
-          Title
-        </label>
+      <form action="/job" method="post">
+        <div>
+          <label for="title_box">
+            Title
+          </label>
 
-        <input type="text" id="title_box" name="query_title">
-      </div>
+          <input type="text" id="title_box" name="query_title">
+        </div>
 
-      <div>
-        <label for="link_box">
-          Link
-        </label>
+        <div>
+          <label for="link_box">
+            Link
+          </label>
 
-        <input type="text" id="link_box" name="query_link">
-      </div>
+          <input type="text" id="link_box" name="query_link">
+        </div>
 
-      <div>
-        <label for="description_box">
-          Description
-        </label>
+        <div>
+          <label for="description_box">
+            Description
+          </label>
 
-        <input type="text" id="description_box" name="query_description">
-      </div>
+          <input type="text" id="description_box" name="query_description">
+        </div>
 
-      <div>
-        <label for="deadline_box">
-          Deadline
-        </label>
+        <div>
+          <label for="deadline_box">
+            Deadline
+          </label>
 
-        <input type="date" id="deadline_box" name="query_deadline">
-      </div>
+          <input type="date" id="deadline_box" name="query_deadline">
+        </div>
 
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
+        <div>
+          <label for="user_id_box">
+            User
+          </label>
 
-        <input type="text" id="user_id_box" name="query_user_id">
-      </div>
+          <input type="text" id="user_id_box" name="query_user_id">
+        </div>
 
-      <div>
-        <label for="category_box">
-          Category
-        </label>
+        <div>
+          <label for="category_box">
+            Category
+          </label>
 
-        <input type="text" id="category_box" name="query_category">
-      </div>
+          <input type="text" id="category_box" name="query_category">
+        </div>
 
-      <button>
-        Create job
-      </button>
-    </form>
+        <button>
+          Create job
+        </button>
+      </form>
+    </div>
   </div>
-</div>
 
-<hr>
-<div>
+  <hr>
   <div>
-    
-    <%= render partial: "jobs/card" %>
+    <div>
+      
+      <%= render partial: "jobs/card" %>
 
+    </div>
   </div>
-</div>
 
-<hr>
+  <hr>
+
+  <%= paginate @list_of_jobs %>
+</div>

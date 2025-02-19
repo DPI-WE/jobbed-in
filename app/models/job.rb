@@ -15,4 +15,8 @@
 class Job < ApplicationRecord
   belongs_to :user, required: true, class_name: "User", foreign_key: "user_id"
   # belongs_to :category, required: true, class_name: "Category", foreign_key: "category_id"
+  #
+
+  scope :default_order, -> { order(deadline: :asc) }
+  scope :upcoming, -> { where(deadline: Date.today..) }
 end

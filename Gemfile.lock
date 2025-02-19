@@ -475,6 +475,7 @@ DEPENDENCIES
   http
   importmap-rails
   jbuilder
+  kaminari
   pg (~> 1.5.6)
   pry-rails
   puma
