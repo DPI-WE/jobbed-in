@@ -1,10 +1,7 @@
 class JobsController < ApplicationController
   def index
-    matching_jobs = Job.all
-
-    @list_of_jobs = matching_jobs.order({ :created_at => :desc })
-
-    render({ :template => "jobs/index" })
+    # TODO: add filtering and sorting
+    @list_of_jobs = Job.default_order.page(params[:page]).per(10)
   end
 
   def show
