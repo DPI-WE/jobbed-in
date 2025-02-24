@@ -1,0 +1,12 @@
+<div class="list-group list-group-flush">
+  <% jobs.each do |job| %>
+    <%= link_to job, class: "list-group-item list-group-item-action" do %>
+      <h5>
+        <%= job %>
+      </h5>
+      <p>
+        <%= job.description.truncate_words(5) %>
+      </p>
+    <% end %>
+  <% end %>
+</div>

@@ -1,17 +1,11 @@
 class JobsController < ApplicationController
   def index
     # TODO: add filtering and sorting
-    @list_of_jobs = Job.default_order.page(params[:page]).per(10)
+    @jobs = Job.default_order.page(params[:page]).per(10)
   end
 
   def show
-    the_id = params.fetch("path_id")
-
-    matching_jobs = Job.where({ :id => the_id })
-
-    @the_job = matching_jobs.at(0)
-
-    render({ :template => "jobs/show" })
+    @the_job = Job.find(params[:id])
   end
 
   def create

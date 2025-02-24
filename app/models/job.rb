@@ -19,4 +19,8 @@ class Job < ApplicationRecord
 
   scope :default_order, -> { order(deadline: :asc) }
   scope :upcoming, -> { where(deadline: Date.today..) }
+
+  def to_s
+    "#{title} (#{category})"
+  end
 end
