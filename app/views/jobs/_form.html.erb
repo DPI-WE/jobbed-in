@@ -1,53 +1,31 @@
-<form action="/job" method="post">
-  <div>
-    <label for="title_box">
-      Title
-    </label>
+<%= form_with model: job do |form| %>
 
-    <input type="text" id="title_box" name="query_title">
+  <div class="my-2">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div>
-    <label for="link_box">
-      Link
-    </label>
-
-    <input type="text" id="link_box" name="query_link">
+  <div class="my-2">
+    <%= form.label :link, class: "form-label" %>
+    <%= form.text_field :link, class: "form-control" %>
   </div>
 
-  <div>
-    <label for="description_box">
-      Description
-    </label>
-
-    <input type="text" id="description_box" name="query_description">
+  <div class="my-2">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_field :description, class: "form-control" %>
   </div>
 
-  <div>
-    <label for="deadline_box">
-      Deadline
-    </label>
-
-    <input type="date" id="deadline_box" name="query_deadline">
+  <div class="my-2">
+    <%= form.label :category, class: "form-label" %>
+    <%= form.text_field :category, class: "form-control" %>
   </div>
 
-  <div>
-    <label for="user_id_box">
-      User
-    </label>
-
-    <input type="text" id="user_id_box" name="query_user_id">
+  <div class="my-2">
+    <%= form.label :deadline, class: "form-label" %>
+    <%= form.date_field :deadline, class: "form-control" %>
   </div>
 
-  <div>
-    <label for="category_box">
-      Category
-    </label>
-
-    <input type="text" id="category_box" name="query_category">
+  <div class="my-2">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
-
-  <button>
-    Create job
-  </button>
-</form>
+<% end %>
