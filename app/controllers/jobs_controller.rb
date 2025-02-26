@@ -5,7 +5,7 @@ class JobsController < ApplicationController
   end
 
   def show
-    @the_job = Job.find(params[:id])
+    @job = Job.find(params[:id])
   end
 
   def create
@@ -45,11 +45,9 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    the_id = params.fetch("path_id")
-    the_job = Job.where({ :id => the_id }).at(0)
+    job = Job.find(params.fetch("id"))
+    job.destroy
 
-    the_job.destroy
-
-    redirect_to("/jobs", { :notice => "Job deleted successfully."} )
+    redirect_to("/jobs", notice: "Job deleted successfully.")
   end
 end
