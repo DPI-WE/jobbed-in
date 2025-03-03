@@ -13,6 +13,8 @@
 #  user_id     :integer
 #
 class Job < ApplicationRecord
+  include Ransackable
+
   belongs_to :user, required: true, class_name: "User", foreign_key: "user_id"
   # belongs_to :category, required: true, class_name: "Category", foreign_key: "category_id"
   #
@@ -24,11 +26,5 @@ class Job < ApplicationRecord
     "#{title} (#{category})"
   end
 
-  def self.ransackable_attributes(auth_object = nil)
-    ["category", "description", "title"]
-  end
 
-  def self.ransackable_associations(auth_object = nil)
-    []
-  end
 end
