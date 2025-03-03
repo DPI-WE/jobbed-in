@@ -23,4 +23,12 @@ class Job < ApplicationRecord
   def to_s
     "#{title} (#{category})"
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["category", "description", "title"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
 end
