@@ -1,0 +1,10 @@
+<%= search_form_for q do |f| %>
+
+  <div class="input-group">
+    <%= f.label :title_or_category_or_description_cont, "Search", class: "visually-hidden" %>
+    <%= f.search_field :title_or_category_or_description_cont, placeholder: "Job title, category, or description", class: "form-control rounded-start-2", autofocus: true %>
+    <%= f.submit "Search", class: "btn btn-primary" %>
+    <a href="/jobs" class="btn btn-outline-secondary">Clear</a>
+  </div>
+  
+<% end %>
