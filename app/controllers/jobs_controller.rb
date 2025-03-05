@@ -24,12 +24,13 @@ class JobsController < ApplicationController
   end
 
   def create
-    job = current_user.jobs.new(job_params)
+    @job = current_user.jobs.new(job_params)
 
-    if job.save
-      redirect_to("/jobs", { :notice => "Job created successfully." })
+    if @job.save
+      redirect_to(job_path(@job), notice: "Job created successfully.")
     else
-      redirect_to("/jobs", { :alert => job.errors.full_messages.to_sentence })
+      flash[:alert] = @job.errors.full_messages.to_sentence
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -43,12 +44,13 @@ class JobsController < ApplicationController
   end
 
   def update
-    job = Job.find(params[:id])
+    @job = Job.find(params[:id])
 
-    if job.update(job_params)
-      redirect_to("/jobs/#{job.id}", { :notice => "Job updated successfully."} )
+    if @job.update(job_params)
+      redirect_to(job_path(@job), notice: "Job updated successfully.")
     else
-      redirect_to("/jobs/#{job.id}", { :alert => job.errors.full_messages.to_sentence })
+      flash[:alert] = @job.errors.full_messages.to_sentence
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -56,7 +58,7 @@ class JobsController < ApplicationController
     job = Job.find(params.fetch("id"))
     job.destroy
 
-    redirect_to("/jobs", notice: "Job deleted successfully.")
+    redirect_to(jobs_path, notice: "Job deleted successfully.")
   end
 
   private
