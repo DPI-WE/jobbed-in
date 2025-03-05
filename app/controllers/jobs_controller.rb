@@ -1,14 +1,25 @@
 class JobsController < ApplicationController
   def index
+    @breadcrumbs = [
+      {content: "Jobs"}
+    ]
     @q = Job.ransack(params[:q])
     @jobs = @q.result.default_order.page(params[:page]).per(10)
   end
 
   def show
     @job = Job.find(params[:id])
+    @breadcrumbs = [
+      {content: "Jobs", href: jobs_path},
+      {content: @job}
+    ]
   end
 
   def new
+    @breadcrumbs = [
+      {content: "Jobs", href: jobs_path},
+      {content: "New"}
+    ]
     @job = current_user.jobs.new
   end
 
@@ -24,6 +35,11 @@ class JobsController < ApplicationController
 
   def edit
     @job = Job.find(params[:id])
+    @breadcrumbs = [
+      {content: "Jobs", href: jobs_path},
+      {content: @job, href: job_path(@job)},
+      {content: "Edit"}
+    ]
   end
 
   def update
