@@ -22,6 +22,11 @@ class Job < ApplicationRecord
   scope :default_order, -> { order(deadline: :asc) }
   scope :upcoming, -> { where(deadline: Date.today..) }
 
+  validates :title, presence: true
+  validates :category, presence: true
+
+  # TODO: add enum for category so it can be a dropdown
+
   def to_s
     "#{title} (#{category})"
   end
