@@ -26,4 +26,6 @@ class User < ApplicationRecord
   has_many  :jobs, class_name: "Job", foreign_key: "user_id", dependent: :destroy
   # has_many  :comments, class_name: "Comment", foreign_key: "user_id", dependent: :destroy
   # has_many  :favorites, class_name: "Favorite", foreign_key: "user_id", dependent: :destroy
+
+  has_one_attached :avatar
 end
