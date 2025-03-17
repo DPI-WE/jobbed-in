@@ -52,7 +52,10 @@
             User
           </dt>
           <dd>
-            <%= @job.user.username %>
+            <%= @job.user.username %><br>
+            <% if @job.user.avatar.attached? %>
+              <%= image_tag @job.user.avatar %>
+            <% end %>
           </dd>
 
           <dt>
