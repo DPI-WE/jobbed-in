@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   resources :favorites
   resources :comments
   resources :jobs
+  
+  unauthenticated do
+    root "page#landing"
+  end
 
-  root "jobs#index"
+  authenticated :user do
+    root "jobs#index", as: :authenticated_root
+  end
 end
