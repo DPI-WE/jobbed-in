@@ -28,4 +28,10 @@ class User < ApplicationRecord
   has_many  :jobs, class_name: "Job", foreign_key: "user_id", dependent: :destroy
 
   has_one_attached :avatar
+
+
+  # TODO: implement profile rating (out of 100)
+  def profile_rating
+    50
+  end
 end

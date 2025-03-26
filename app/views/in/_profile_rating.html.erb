@@ -1,0 +1,19 @@
+<div class="container my-4">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Profile Rating</h3>
+      <p>Your profile score is: <strong><%= user.profile_rating %></strong> out of 100</p>
+      <div class="progress"
+           role="progressbar"
+           aria-label="Profile rating"
+           aria-valuenow="<%= user.profile_rating %>"
+           aria-valuemin="0"
+           aria-valuemax="100">
+        <div class="progress-bar" style="width: <%= user.profile_rating %>%">
+          <%= user.profile_rating %>
+        </div>
+      </div>
+      <small class="text-muted">Complete more fields to increase your score.</small>
+    </div>
+  </div>
+</div>
