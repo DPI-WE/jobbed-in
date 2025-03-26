@@ -3,8 +3,10 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
+#  about                  :text
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  headline               :text
 #  profile_photo          :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
@@ -19,6 +21,8 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
+  include Rateable
+
   devise :database_authenticatable,
          :registerable,
          :recoverable,
@@ -28,10 +32,4 @@ class User < ApplicationRecord
   has_many  :jobs, class_name: "Job", foreign_key: "user_id", dependent: :destroy
 
   has_one_attached :avatar
-
-
-  # TODO: implement profile rating (out of 100)
-  def profile_rating
-    50
-  end
 end

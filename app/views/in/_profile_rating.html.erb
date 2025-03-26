@@ -2,18 +2,25 @@
   <div class="row">
     <div class="col-md-12">
       <h3>Profile Rating</h3>
-      <p>Your profile score is: <strong><%= user.profile_rating %></strong> out of 100</p>
+      <p>Your profile score is: <strong><%= user.profile_rating[:score] %></strong> out of <%= user.profile_rating[:max] %> <%= '💯' if user.profile_rating[:full] %></p>
       <div class="progress"
            role="progressbar"
            aria-label="Profile rating"
-           aria-valuenow="<%= user.profile_rating %>"
+           aria-valuenow="<%= user.profile_rating[:score] %>"
            aria-valuemin="0"
-           aria-valuemax="100">
-        <div class="progress-bar" style="width: <%= user.profile_rating %>%">
-          <%= user.profile_rating %>
+           aria-valuemax="<%= user.profile_rating[:max] %>">
+        <div class="progress-bar" style="width: <%= user.profile_rating[:percent] %>%">
+          <%= user.profile_rating[:percent].to_i %>%
         </div>
       </div>
-      <small class="text-muted">Complete more fields to increase your score.</small>
+      <% if user.profile_rating[:reasons].any? %>
+        <ul class="text-muted">
+          Complete more fields to increase your score:
+          <% user.profile_rating[:reasons].each do |reason| %>
+            <li><small><%= reason %></small></li>
+          <% end %>
+        </ul>
+      <% end %>
     </div>
   </div>
 </div>
