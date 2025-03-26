@@ -52,10 +52,16 @@
             User
           </dt>
           <dd>
-            <%= @job.user.username %><br>
-            <% if @job.user.avatar.attached? %>
-              <%= image_tag @job.user.avatar %>
-            <% end %>
+            <div class="row">
+              <div class="col-md-3 text-center">
+                <%= link_to in_path(@job.user.username), class: "text-decoration-none text-dark" do %>
+                  <% if @job.user.avatar.attached? %>
+                    <%= image_tag(@job.user.avatar, alt: @job.user.username, class: "img-fluid rounded-circle mb-3") %>
+                  <% end %>
+                  <h2><%= @job.user.username %></h2>
+                <% end %>
+              </div>
+            </div>
           </dd>
 
           <dt>

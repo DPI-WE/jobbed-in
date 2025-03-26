@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :favorites
   resources :comments
   resources :jobs
-  
+
+  get "in/:username", to: "in#show", as: :in
+
   unauthenticated do
     root "page#landing"
   end
