@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   skip_forgery_protection
+
+  # TODO: move to deviseable
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected

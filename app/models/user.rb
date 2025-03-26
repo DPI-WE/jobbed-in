@@ -19,13 +19,13 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable
+
   has_many  :jobs, class_name: "Job", foreign_key: "user_id", dependent: :destroy
-  # has_many  :comments, class_name: "Comment", foreign_key: "user_id", dependent: :destroy
-  # has_many  :favorites, class_name: "Favorite", foreign_key: "user_id", dependent: :destroy
 
   has_one_attached :avatar
 end
