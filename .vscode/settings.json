@@ -52,7 +52,11 @@
     "editor.formatOnSave": false,
     "editor.autoClosingBrackets": "beforeWhitespace"
   },
+  "[key]": {
+    "files.insertFinalNewline": false,
+  },
   "files.associations": {
-    "*.html.erb": "erb"
+    "*.html.erb": "erb",
+    "*.key": "key"
   }
 }
